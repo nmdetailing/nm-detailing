@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NM Detailing</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url('https://sacarlounge.ru/templates/image/AboutCompanyIMG/2.jpg ');
+            background-size: cover;
+            background-position: center;
+            color: #eaeaea;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #ccc;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-top: -30px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            color: #bbbbbb;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .service-link {
+            text-decoration: none;
+            color: inherit;
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+
+        .service {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #ddd;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .service-link:hover .service {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .price {
+            color: #aaaaaa;
+            font-style: italic;
+        }
+
+        footer {
+            background: #111;
+            color: #777;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* Мобильное меню */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            width: 25px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #1a1a1a;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                padding: 20px 0;
+            }
+
+            .services, .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<header>
+    <h1>NM Detailing</h1>
+    <p>Детейлинг-студия премиум-класса</p>
+</header>
+
+<nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="menu-links" id="mobileMenu">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="gallery.html" target="_blank">Галерея</a>
+        <a href="news.html" target="_blank">Новости</a>
+        <a href="article.html" target="_blank">Статьи</a>
+        <a href="contact.html">Контакты</a>
+        <a href="booking.html" target="_blank">Записаться</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <section id="about">
+        <h2>О нас</h2>
+        <p>«NM Detailing» — это детейлинг-центр премиум-класса, специализирующийся на профессиональном уходе за автомобилями среднего и высокого ценового сегмента. Основная цель — предложить клиентам комплексные услуги по защите и восстановлению внешнего вида авто с использованием инновационных материалов и технологий.</p>
+    </section>
+
+    <section id="services">
+        <h2>Услуги</h2>
+        <div class="services">
+
+            <!-- Защитные покрытия -->
+            <a href="protective-coating.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://antikor154.ru/img/shop/1718430938.jpg " alt="Защитные покрытия">
+                    <h3>Защитные покрытия</h3>
+                    <p>Керамика, жидкое стекло, антигравийная пленка</p>
+                    <p class="price">от 8 000 до 300 000 ₽</p>
+                </div>
+            </a>
+
+            <!-- Полировка кузова -->
+            <a href="paint-polishing.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://st.detailing.zone/12/2533/402/lokalnaya_polirovka_detailing-zone.jpg " alt="Полировка кузова">
+                    <h3>Полировка кузова</h3>
+                    <p>Удаление царапин, восстановление блеска ЛКП</p>
+                    <p class="price">от 2 000 до 30 000 ₽</p>
+                </div>
+            </a>
+
+            <!-- Глубокая химчистка салона -->
+            <a href="deep-cleaning.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://sacarlounge.ru/assets/cache_image/himchistka/dry-cleaning-sa-carlounge_875x583_7a1.jpeg " alt="Химчистка салона">
+                    <h3>Глубокая химчистка салона</h3>
+                    <p>Обработка всех поверхностей</p>
+                    <p class="price">от 8 000 до 40 000 ₽</p>
+                </div>
+            </a>
+
+            <!-- Удаление вмятин без покраски -->
+            <a href="pdr.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://spb.okleyka.pro/upload/iblock/97f/jelcs2nh7bqudmuxqahxrw1ofp99x25n/IMG_9371.jpg " alt="Удаление вмятин">
+                    <h3>Удаление вмятин без покраски</h3>
+                    <p>Технологии PDR</p>
+                    <p class="price">от 1 500 ₽ за шт.</p>
+                </div>
+            </a>
+
+            <!-- Уход за пластиком и кожей -->
+            <a href="leather-care.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://sunstek.ru/assets/images/products/himchistka/ERk1c2tUYAA5Vw3.jpg " alt="Уход за кожей">
+                    <h3>Уход за кожей и пластиком</h3>
+                    <p>Кондиционирование, защита</p>
+                    <p class="price">от 3 000 до 8 000 ₽</p>
+                </div>
+            </a>
+
+            <!-- Тонирование стекол -->
+            <a href="glass-tinting.html" target="_blank" class="service-link">
+                <div class="service">
+                    <img src="https://автосвет92.рф/wp-content/uploads/2022/07/Tonirovka-627x400-1-627x390.jpg" alt="Тонирование стекол">
+                    <h3>Тонирование и бронирование стекол</h3>
+                    <p>Пленка премиум-класса</p>
+                    <p class="price">от 10 000 до 30 000 ₽</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Акция -->
+    <section id="promo">
+        <h2>🎁 Специальное предложение</h2>
+        <p style="text-align: center;">
+            При первой записи — скидка 10% на любую услугу.<br>
+            Используйте промокод: <strong>FIRST10</strong>
+        </p>
+    </section>
+
+    <!-- Кнопка Записаться -->
+    <section id="booking">
+        <h2>Запишитесь прямо сейчас</h2>
+        <p style="text-align: center;">
+            <a href="booking.html" target="_blank" style="
+                display: inline-block;
+                background-color: #007AFF;
+                color: white;
+                padding: 15px 30px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            ">Записаться</a>
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 NM Detailing. Все права защищены.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+</script>
+
+</body>
+</html>

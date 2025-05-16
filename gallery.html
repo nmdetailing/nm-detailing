@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея | NM Detailing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://sacarlounge.ru/templates/image/AboutCompanyIMG/2.jpg ');
+            background-size: cover;
+            background-position: center;
+            color: #eaeaea;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #bbbbbb;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        .close, .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.3s;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        .close {
+            right: 35px;
+            top: 20px;
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <h1>Наши работы</h1>
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="https://a.d-cd.net/dfcaec5s-1920.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://performance-detailing.ru/wp-content/uploads/2020/04/27-audi-r8-polirovka-krila-pereshivka-kresla.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://auto-deteiling.ru/wp-content/uploads/2021/09/p12.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://brooklandsdetailing.ru/storage/2024/08/22/aee4e4a42d276b1c0819c34671b9db59b24a9c98.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://st.detailing.zone/12/2533/402/lokalnaya_polirovka_detailing-zone.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://spb.okleyka.pro/upload/iblock/97f/jelcs2nh7bqudmuxqahxrw1ofp99x25n/IMG_9371.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://srv-auto.ru/wp-content/uploads/2022/12/36b2809d9897674158231710198533e0-min-768x512.jpeg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://kuzov-media.ru/upload/iblock/606/6067418e2279e2ffff712c561a778d43.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://static.tildacdn.com/tild6538-3639-4362-a435-323533363839/3close-up-car-care-p.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://www.tonirovanie.ru/images/blog/2021/04/2/1.jpg " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://bigdauto.ru/media/cache/8b/c7/8bc7de39a2944985df75de957b2df413.png " onclick="openModal(this.src)">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://автоцарапина.рф/images/vidy_deteilinga.jpg" onclick="openModal(this.src)">
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="imageModal" class="modal" onclick="closeModal(event)">
+    <span class="prev" onclick="prevImage()">&#10094;</span>
+    <img class="modal-content" id="modalImg">
+    <span class="next" onclick="nextImage()">&#10095;</span>
+    <span class="close">&times;</span>
+</div>
+
+<footer>
+    <p>&copy; 2025 NM Detailing. Все права защищены.</p>
+</footer>
+
+<script>
+    const images = [
+        "https://a.d-cd.net/dfcaec5s-1920.jpg ",
+        "https://performance-detailing.ru/wp-content/uploads/2020/04/27-audi-r8-polirovka-krila-pereshivka-kresla.jpg ",
+        "https://auto-deteiling.ru/wp-content/uploads/2021/09/p12.jpg ",
+        "https://brooklandsdetailing.ru/storage/2024/08/22/aee4e4a42d276b1c0819c34671b9db59b24a9c98.jpg ",
+        "https://st.detailing.zone/12/2533/402/lokalnaya_polirovka_detailing-zone.jpg ",
+        "https://spb.okleyka.pro/upload/iblock/97f/jelcs2nh7bqudmuxqahxrw1ofp99x25n/IMG_9371.jpg ",
+        "https://srv-auto.ru/wp-content/uploads/2022/12/36b2809d9897674158231710198533e0-min-768x512.jpeg ",
+        "https://kuzov-media.ru/upload/iblock/606/6067418e2279e2ffff712c561a778d43.jpg ",
+        "https://static.tildacdn.com/tild6538-3639-4362-a435-323533363839/3close-up-car-care-p.jpg ",
+        "https://www.tonirovanie.ru/images/blog/2021/04/2/1.jpg ",
+        "https://bigdauto.ru/media/cache/8b/c7/8bc7de39a2944985df75de957b2df413.png ",
+        "https://автоцарапина.рф/images/vidy_deteilinga.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function openModal(src) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        currentIndex = images.indexOf(src);
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    function closeModal(e) {
+        const modal = document.getElementById("imageModal");
+        if (e.target === modal || e.key === "Escape") {
+            modal.style.display = "none";
+        }
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById("modalImg").src = images[currentIndex];
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        document.getElementById("modalImg").src = images[currentIndex];
+    }
+
+    // Управление с клавиатуры
+    window.addEventListener("keydown", function(e) {
+        const modal = document.getElementById("imageModal");
+        if (modal.style.display === "block") {
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "Escape") modal.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>
